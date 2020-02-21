@@ -1,0 +1,50 @@
+﻿@model TaskManager.Models.ViewModels.ShowEmployee
+@{
+    ViewBag.Title = "View";
+}
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div class="actionlink">
+    <a href="/Employee/List">Back to List</a>
+    <a href="/Employee/Update/@Model.employee.EmployeeId">Update</a>
+    <a href="/Employee/DeleteConfirm/@Model.employee.EmployeeId">Delete</a>
+</div>
+<h2>@Model.employee.FirstName @Model.employee.LastName</h2>
+<div class="col2">
+    <div><label>Email : </label>@Model.employee.Email</div>
+    <div><label>Address : </label>@Model.employee.Address</div>
+    <div><label>Phone : </label>@Model.employee.Phone</div>
+    <div><label>Join Date : </label>@Model.employee.JoinDate</div>
+</div>
+<div class="col2last">
+    <div><label>Tasks Assigned :</label></div>
+    @{
+
+        foreach (var tsk in @Model.tasks)
+        {
+            <div class="lineitem">
+                <a href="/Task/Show/@tsk.TaskId">@tsk.TaskName</a>
+                @{
+                }
+                <a class="rel_action" href="/Employee/DetachTask/@Model.employee.EmployeeId?taskid=@tsk.TaskId">Remove Task</a>
+            </div>
+        }
+
+    }
+
+    <form method="post" action="/Employee/Attachtask/@Model.employee.EmployeeId">
+        <select name="taskid" id="taskid">
+            @{ 
+
+                foreach (var tasks in Model.all_tasks)
+                {
+                    <option value="@tasks.TaskId">
+                        @tasks.TaskName
+                    </option>
+                }
+            }
+        </select>
+      <input class="rel_action" type="submit" value="Add Task" />
+    </form>
+
+</div>

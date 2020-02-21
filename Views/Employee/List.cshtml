@@ -1,0 +1,29 @@
+﻿@model List<TaskManager.Models.Employee> 
+@{
+    ViewBag.Title = "List";
+}
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2>List of Employees</h2>
+<div>
+    <a class="rel_action" href="/Employee/Add">Add New</a>
+</div>
+<form action="/Employee/List" method="GET">
+    <input type="text" name="empsearchkey" id="empsearchkey" placeholder="Name"/>
+    <input type="submit" value="Search" />
+</form>
+<div>
+    @{ 
+        foreach (var emp in Model)
+        {
+        <div class="outerContainer">
+            <div class="heading"><a href="/Employee/View/@emp.EmployeeId">@emp.FirstName @emp.LastName</a></div>
+            <div><label>Email : </label><span>@emp.Email</span></div>
+            <div><label>Address : </label><span>@emp.Address</span></div>
+            <div><label>Join Date : </label><span>@emp.JoinDate</span></div>
+            <div class="actionlink"><a href="/Employee/Update/@emp.EmployeeId">Update</a><a href="/Employee/DeleteConfirm/@emp.EmployeeId"> Delete</a></div>
+        </div>
+           
+        }
+    }
+</div>

@@ -1,0 +1,15 @@
+﻿@model TaskManager.Models.Task
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Delete</h2>
+<h3>Are you sure you want to remove @Model.TaskName</h3>
+<div>
+    <div><a class="rel_action" href="/Task/Show/@Model.TaskId">Cancel</a></div>
+    <div>
+        <form action="/Task/Delete/@Model.TaskId" method="post">
+            <input class="rel_action" type="submit" value="Confirm" />
+        </form>
+    </div>
+</div>

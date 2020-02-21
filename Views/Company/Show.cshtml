@@ -1,0 +1,22 @@
+﻿@model TaskManager.Models.ViewModels.ShowCompany
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Welcome to @Model.company.CompanyName</h2>
+<h3>Contact Us At : @Model.company.Phone</h3>
+<h3>Meet Us At : @Model.company.Address</h3>
+
+<h4>Meet Our Employees..</h4>
+<div>
+    @{
+
+        foreach (var emp in @Model.employees)
+        {
+            <div>
+                <a href="/Employee/View/@emp.EmployeeId">@emp.FirstName @emp.LastName</a>
+            </div>
+        }
+
+    }
+</div>

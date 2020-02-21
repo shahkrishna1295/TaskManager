@@ -1,0 +1,51 @@
+﻿@*@model  TaskManager.Models.Employee*@
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add an Employee</h2>
+<div class="navbar">
+    <a class="navlink" href="/Employee/List">Back to List</a>
+</div>
+
+<form method="post" action="/Employee/Add">
+
+    <div>
+        <label>First Name : </label>
+        <input type="text" id="firstname" name="firstname" />
+    </div>
+
+    <div>
+        <label>Last Name : </label>
+        <input type="text" id="lastname" name="lastname" />
+    </div>
+
+    <div>
+        <label>Email Address : </label>
+        <input type="email" id="email" name="email" />
+    </div>
+
+    <div>
+        <label>Address : </label>
+        <input type="text" id="address" name="address" />
+    </div>
+
+    <div>
+        <label>Phone : </label>
+        <input type="text" id="phone" name="phone" />
+    </div>
+
+    <div>
+        <label>Join Date : </label>
+        <input type="date" id="joindate" name="joindate" />
+    </div>
+
+    <div style="display:none">
+        <label>Company : </label>
+        <input type="text" id="companyid" name="companyid" value="1" />
+    </div>
+
+    <div>
+        <input type="submit" value="Add Employee" />
+    </div>
+</form>

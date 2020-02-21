@@ -1,0 +1,20 @@
+﻿@model List<TaskManager.Models.Company>
+@{
+    ViewBag.Title = "List";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2>Welcome to Task Manager</h2>
+<div id="main_page">
+    @{
+        foreach (var cmp in Model)
+        {
+        <div class="outerContainer">
+            <div class="heading"><a href="/Company/Show/@cmp.CompanyId">@cmp.CompanyName!</a></div>
+            <div>@cmp.Address</div>
+            <div>@cmp.Phone</div>
+        </div>
+
+        }
+    }
+
+</div>

@@ -1,0 +1,63 @@
+﻿@model TaskManager.Models.Task
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Task</h2>
+<div class="navbar">
+    <a class="navlink" href="/Task/List">Back to List</a>
+</div>
+
+<form method="post" action="/Task/Update/@Model.TaskId">
+
+    <div>
+        <label>Task Name : </label>
+        <input type="text" id="taskname" name="taskname" value="@Model.TaskName" />
+    </div>
+
+    <div>
+        <label>Estimated Start Date : </label>
+        <input type="text" id="eststartdate" name="eststartdate" value="@Model.EstStartDate"/>
+    </div>
+
+    <div>
+        <label>Estimated End Date : </label>
+        <input type="text" id="estenddate" name="estenddate"value="@Model.EstEndDate" />
+    </div>
+
+    <div>
+        <label>Actual Start Date : </label>
+        <input type="text" id="actstartdate" name="actstartdate" value="@Model.ActStartDate" />
+    </div>
+
+    <div>
+        <label>Actual Start Date : </label>
+        <input type="text" id="actenddate" name="actenddate" value="@Model.ActEndDate" />
+    </div>
+
+    <div>
+        <label>Description : </label>
+        <input type="text" id="description" name="description" value="@Model.Description" />
+    </div>
+
+    <div>
+        <label>Status : </label>
+        <input type="text" id="status" name="status" value="@Model.Status" />
+    </div>
+
+    <div>
+        <label>Note : </label>
+        <input type="text" id="note" name="note" value="@Model.Note" />
+    </div>
+
+    <div>
+        <label>Priority : </label>
+        <input type="text" id="priority" name="priority" value="@Model.Priority" />
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>
+
+
